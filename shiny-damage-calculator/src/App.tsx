@@ -31,7 +31,7 @@ const MemorialOption: React.FC = () => {
   return (
     <FormGroup className='d-flex m-3'>
       <FormLabel className='text-nowrap mt-2 mr-1'>思い出Lv</FormLabel>
-      <FormControl className='mx-1' as='select' value='3' onChange={onChange}>
+      <FormControl className='mx-1' as='select' defaultValue='3' onChange={onChange}>
         {
           range(5).map(i => (
             <option key={i} value={'' + (i+1)}>Lv.{i+1}</option>
@@ -49,7 +49,7 @@ const AuditionWeek: React.FC = () => {
   return (
     <FormGroup className='d-flex m-3'>
       <FormLabel className='text-nowrap mt-2 mr-1'>オーデ週</FormLabel>
-      <FormControl className='mx-1' as='select' value='33' onChange={onChange}>
+      <FormControl className='mx-1' as='select' defaultValue='33' onChange={onChange}>
         {
           range(34).map(i => {
             let text = `${Math.floor(i / 8) + 1}-${8 - i % 8}`
@@ -75,10 +75,10 @@ const BuffValue: React.FC = () => {
       <FormLabel className='text-nowrap mt-2 mr-1'>補正値</FormLabel>
       {
         range(3).map(i => (
-          <FormControl key={i} className='mx-1' as='select' value='0' onChange={onChange}>
+          <FormControl key={i} className='mx-1' as='select' defaultValue='0' onChange={onChange}>
             {
               range(26).map(j => {
-                const per = `${j * 10 - 50}`
+                const per = j < 5 ? `${j * 10 - 50}` : j === 5 ? '0' : `+${j * 10 - 50}`
                 return (<option key={j} value={per}>{per}％</option>);
               })
             }
@@ -96,7 +96,7 @@ const AppealTarget: React.FC = () => {
   return (
     <FormGroup className='d-flex m-3'>
       <FormLabel className='text-nowrap mt-2 mr-1'>アピール対象</FormLabel>
-      <FormControl className='mx-1' as='select' value='0' onChange={onChange}>
+      <FormControl className='mx-1' as='select' defaultValue='0' onChange={onChange}>
         <option value='0'>Vo審査員</option>
         <option value='1'>Da審査員</option>
         <option value='2'>Vi審査員</option>
