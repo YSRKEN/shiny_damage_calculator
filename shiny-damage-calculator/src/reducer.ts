@@ -1,4 +1,6 @@
-import { IAction, IAppState } from './state';
+import { AppealTarget, IAction, IAppState } from './state';
+
+export const LOCAL_KEY = 'shiny-damage-calculator_state';
 
 export const reduce = (state: IAppState, setState: (s: IAppState) => void, action: IAction) => {
   const newState: IAppState = JSON.parse(JSON.stringify(state));
@@ -26,12 +28,11 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
       newState.buffValue[buffType] = buffValue;
       break;
     case 'TARGET':
-      const targetType = action.value.split(',')[0];
-      const targetValue = parseInt(action.value.split(',')[1], 10);
-      newState.buffValue[targetType] = targetValue;
+      newState.appealTarget = action.value as AppealTarget;
       break;
   }
   // tslint:disable-next-line:no-console
   console.log(newState);
+  window.localStorage.setItem(LOCAL_KEY, JSON.stringify(newState));
   setState(newState);
 }

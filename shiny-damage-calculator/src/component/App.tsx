@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { reduce } from 'src/reducer';
+import { LOCAL_KEY, reduce } from 'src/reducer';
 import { DEFAULT_STATE, IAction, IAppState } from 'src/state';
 import { IdolParameterForm } from './IdolParameterForm';
 import { OtherOptionForm } from './OtherOptionForm';
@@ -10,11 +10,14 @@ interface IContext {
   dispatch: (action: IAction) => void
 }
 
+const defaultState: IAppState = window.localStorage.getItem(LOCAL_KEY) === null
+  ? DEFAULT_STATE : JSON.parse('' + window.localStorage.getItem(LOCAL_KEY));
+
 // tslint:disable-next-line: no-empty
-export const AppContext = React.createContext<IContext>({'state': DEFAULT_STATE, dispatch: () => {}});
+export const AppContext = React.createContext<IContext>({'state': defaultState, dispatch: () => {}});
 
 const App: React.FC = () => {
-  const [state, setState] = React.useState<IAppState>(DEFAULT_STATE);
+  const [state, setState] = React.useState<IAppState>(defaultState);
 
   return (
     <AppContext.Provider value={{'state': state, dispatch: (action: IAction) => reduce(state, setState, action)}}>
