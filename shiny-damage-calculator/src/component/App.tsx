@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
+import { DEFAULT_STATE, IAppState } from 'src/state';
 import { IdolParameterForm } from './IdolParameterForm';
 import { OtherOptionForm } from './OtherOptionForm';
 
 const App: React.FC = () => {
+  const [state] = React.useState<IAppState>(DEFAULT_STATE);
+  // tslint:disable-next-line:no-console
+  console.log(state);
+
   return (
     <Row>
       <Col className='mx-auto' xs={12} sm={8} md={6}>

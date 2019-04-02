@@ -9,7 +9,7 @@ export const MemorialOption: React.FC = () => {
   return (
     <FormGroup className='d-flex m-3'>
       <FormLabel className='text-nowrap mt-2 mr-1'>思い出Lv</FormLabel>
-      <FormControl className='mx-1' as='select' defaultValue='3' onChange={onChange}>
+      <FormControl className='mx-1' as='select' defaultValue='2' onChange={onChange}>
         {
           range(5).map(i => (
             <option key={i} value={'' + (i+1)}>Lv.{i+1}</option>
