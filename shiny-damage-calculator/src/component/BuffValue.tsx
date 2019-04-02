@@ -1,26 +1,40 @@
 import * as React from 'react';
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
+import { AppealTarget } from 'src/state';
 import { range } from 'src/utility';
+import { AppContext } from './App';
+
+const buffValueList = [-10].concat(range(101));
+
+const BuffValueSingle: React.FC<{type: AppealTarget}> = ({type}) => {
+  const context = React.useContext(AppContext);
+
+  // tslint:disable-next-line: no-empty
+  const onChange = (event: React.FormEvent<any>) => {
+    if (event.currentTarget.value !== undefined) {
+      context.dispatch({'type': 'BUFF', 'value': `${type},${event.currentTarget.value}`});
+    }
+  };
+
+  return (
+    <FormControl className='mx-1' as='select' defaultValue={'' + context.state.buffValue[type]} onChange={onChange}>
+    {
+      buffValueList.map(j => {
+        const per = j <= 0 ? '' + j : '+' + j;
+        return (<option key={j} value={'' + j}>{per}％</option>);
+      })
+    }
+  </FormControl>
+  )
+};
 
 export const BuffValue: React.FC = () => {
-  // tslint:disable-next-line: no-empty
-  const onChange = () => {
-  };
   return (
     <FormGroup className='d-flex m-3'>
       <FormLabel className='text-nowrap mt-2 mr-1'>補正値</FormLabel>
-      {
-        range(3).map(i => (
-          <FormControl key={i} className='mx-1' as='select' defaultValue='0' onChange={onChange}>
-            {
-              range(26).map(j => {
-                const per = j < 5 ? `${j * 10 - 50}` : j === 5 ? '0' : `+${j * 10 - 50}`
-                return (<option key={j} value={per}>{per}％</option>);
-              })
-            }
-          </FormControl>
-        ))
-      }
+      <BuffValueSingle type='vo'/>
+      <BuffValueSingle type='da'/>
+      <BuffValueSingle type='vi'/>
     </FormGroup>
   )
 };
