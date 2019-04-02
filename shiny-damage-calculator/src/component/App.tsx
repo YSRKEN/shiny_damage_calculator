@@ -6,17 +6,18 @@ import { IdolParameterForm } from './IdolParameterForm';
 import { OtherOptionForm } from './OtherOptionForm';
 
 interface IContext {
+  state: IAppState
   dispatch: (action: IAction) => void
 }
 
+// tslint:disable-next-line: no-empty
+export const AppContext = React.createContext<IContext>({'state': DEFAULT_STATE, dispatch: () => {}});
+
 const App: React.FC = () => {
   const [state, setState] = React.useState<IAppState>(DEFAULT_STATE);
-  
-  // tslint:disable-next-line:no-empty
-  const AppContext = React.createContext<IContext>({dispatch: () => {}});
 
   return (
-    <AppContext.Provider value={{dispatch: (action: IAction) => reduce(state, setState, action)}}>
+    <AppContext.Provider value={{'state': state, dispatch: (action: IAction) => reduce(state, setState, action)}}>
       <Row>
         <Col className='mx-auto' xs={12} sm={8} md={6}>
           <h1 className='text-center d-none d-sm-block my-3'>シャニマス火力計算機</h1>
