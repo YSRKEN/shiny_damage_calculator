@@ -6,7 +6,7 @@ export interface IStatus {
 }
 
 // アピール対象
-export type AppealTarget = 'vo' | 'da' | 'vi'
+export type AppealTarget = 'vo' | 'da' | 'vi' | 'other';
 
 // アプリケーション全体のState
 export interface IAppState {
