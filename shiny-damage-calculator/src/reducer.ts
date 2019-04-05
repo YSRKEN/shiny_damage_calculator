@@ -16,6 +16,14 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
       const sStatusValue = parseInt(action.value.split(',')[2], 10);
       newState.sIdolStatus[sStatusIndex][sStatusType] = sStatusValue;
       break;
+    case 'P_NAME':
+      newState.pIdolName = action.value;
+      break;
+    case 'S_NAME':
+      const sStatusIndex2 = parseInt(action.value.split(',')[0], 10);
+      const sStatusName = action.value.split(',')[1];
+      newState.sIdolName[sStatusIndex2] = sStatusName;
+      break;
     case 'MEMORIAL':
       newState.memorialOption = parseInt(action.value, 10);
       break;
@@ -30,9 +38,9 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
     case 'TARGET':
       newState.appealTarget = action.value as AppealTarget;
       break;
+    case 'CARD':
+      newState.cardMultiple = parseInt(action.value, 10);
   }
-  // tslint:disable-next-line:no-console
-  console.log(newState);
   window.localStorage.setItem(LOCAL_KEY, JSON.stringify(newState));
   setState(newState);
 }

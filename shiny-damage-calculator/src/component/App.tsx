@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { LOCAL_KEY, reduce } from 'src/reducer';
 import { DEFAULT_STATE, IAction, IAppState } from 'src/state';
+import DamageResult from './DamageResult';
 import { IdolParameterForm } from './IdolParameterForm';
 import { OtherOptionForm } from './OtherOptionForm';
 
@@ -26,12 +27,15 @@ const App: React.FC = () => {
           <h1 className='text-center d-none d-sm-block my-3'>シャニマス火力計算機</h1>
           <h2 className='text-center d-xs-block d-sm-none my-3'>シャニマス火力計算機</h2>
           <div className='text-center my-3'>
-            Ver.0.2.0<a className='ml-3' href='https://github.com/YSRKEN/shiny_damage_calculator'>GitHubへのリンク</a>
+            Ver.0.5.0<a className='ml-3' href='https://github.com/YSRKEN/shiny_damage_calculator'>GitHubへのリンク</a>
           </div>
-          <Form className='border mx-3'>
+          <Form className='border'>
             <IdolParameterForm/>
             <OtherOptionForm/>
           </Form>
+          <div className='border'>
+            <DamageResult/>
+          </div>
         </Col>
       </Row>
     </AppContext.Provider>
