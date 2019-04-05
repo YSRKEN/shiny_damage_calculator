@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { LOCAL_KEY, reduce } from 'src/reducer';
-import { DEFAULT_STATE, IAction, IAppState } from 'src/state';
+import { LOCAL_KEY, reduce } from '../reducer';
+import { DEFAULT_STATE, IAction, IAppState } from '../state';
 import DamageResult from './DamageResult';
 import { IdolParameterForm } from './IdolParameterForm';
 import { OtherOptionForm } from './OtherOptionForm';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FormControl, FormGroup } from 'react-bootstrap';
-import { AppealTarget } from 'src/state';
-import { idolWord } from 'src/utility';
+import { AppealTarget } from '../state';
+import { idolWord } from '../utility';
 import { AppContext } from './App';
 
 export const IdolParameter: React.FC<{produce?: boolean, index?: number}> = ({produce=true, index=-1}) => {

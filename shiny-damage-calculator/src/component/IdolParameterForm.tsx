@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { range } from 'src/utility';
+import { range } from '../utility';
 import { IdolParameter } from './IdolParameter';
 
 export const IdolParameterForm: React.FC = () => (

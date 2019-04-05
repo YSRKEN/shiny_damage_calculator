@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { FormControl } from 'react-bootstrap';
-import { calcMemorialDamage, calcNormalDamage } from 'src/simulator';
-import { AppealTarget } from 'src/state';
-import { idolWord, isPC, range } from 'src/utility';
+import { calcMemorialDamage, calcNormalDamage } from '../simulator';
+import { AppealTarget } from '../state';
+import { idolWord, isPC, range } from '../utility';
 import { AppContext } from './App';
 
 const perfectLabel = () => isPC() ? 'PERFECT' : 'P';
