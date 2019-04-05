@@ -1,4 +1,3 @@
-import { calcMemorialDamage, calcNormalDamage } from './simulator';
 import { AppealTarget, IAction, IAppState } from './state';
 
 export const LOCAL_KEY = 'shiny-damage-calculator_state';
@@ -32,20 +31,6 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
       newState.appealTarget = action.value as AppealTarget;
       break;
   }
-  // tslint:disable-next-line:no-console
-  console.log(newState);
-  // tslint:disable-next-line:no-console
-  console.log(calcNormalDamage(newState, 0, 'vi', 2.5, 'perfect'));
-  // tslint:disable-next-line:no-console
-  console.log(calcNormalDamage(newState, 1, 'vi', 2.5, 'perfect'));
-  // tslint:disable-next-line:no-console
-  console.log(calcNormalDamage(newState, 2, 'vi', 2.5, 'perfect'));
-  // tslint:disable-next-line:no-console
-  console.log(calcNormalDamage(newState, 3, 'vi', 2.5, 'perfect'));
-  // tslint:disable-next-line:no-console
-  console.log(calcNormalDamage(newState, 4, 'vi', 2.5, 'perfect'));
-  // tslint:disable-next-line:no-console
-  console.log(calcMemorialDamage(newState, true));
   window.localStorage.setItem(LOCAL_KEY, JSON.stringify(newState));
   setState(newState);
 }
