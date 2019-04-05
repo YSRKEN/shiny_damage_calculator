@@ -70,7 +70,7 @@ const DamageResult: React.FC = () => {
 						idolName = context.state.sIdolName[index - 1] !== '' ? context.state.sIdolName[index - 1] : `s${index}${idolWord()}`;
 					}
 					return (<tr key={index}>
-						<th scope='row'>{idolName}</th>
+						<th scope='row' className='text-nowrap'>{idolName}</th>
 						<td>{normalDamage[index][0][0]}</td>
 						<td>{normalDamage[index][0][1]}</td>
 						<td>{normalDamage[index][1][0]}</td>
