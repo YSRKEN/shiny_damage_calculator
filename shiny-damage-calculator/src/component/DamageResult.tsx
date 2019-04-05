@@ -2,13 +2,11 @@ import * as React from 'react';
 import { FormControl } from 'react-bootstrap';
 import { calcMemorialDamage, calcNormalDamage } from 'src/simulator';
 import { AppealTarget } from 'src/state';
-import { range } from 'src/utility';
+import { idolWord, isPC, range } from 'src/utility';
 import { AppContext } from './App';
 
-const isPC = () => window.innerWidth >= 768;
 const perfectLabel = () => isPC() ? 'PERFECT' : 'P';
 const goodLabel = () => isPC() ? 'GOOD' : 'G';
-const idolWord = () => isPC() ? 'アイドル' : '';
 
 const DamageResult: React.FC = () => {
 	const context = React.useContext(AppContext);
@@ -65,7 +63,12 @@ const DamageResult: React.FC = () => {
 			{
 				
 				range(5).map(index => {
-					const idolName = index === 0 ? `p${idolWord()}` : `s${index}${idolWord()}`;
+					let idolName = '';
+					if (index === 0) {
+						idolName = context.state.pIdolName !== '' ? context.state.pIdolName : `p${idolWord()}`;
+					} else {
+						idolName = context.state.sIdolName[index - 1] !== '' ? context.state.sIdolName[index - 1] : `s${index}${idolWord()}`;
+					}
 					return (<tr key={index}>
 						<th scope='row'>{idolName}</th>
 						<td>{normalDamage[index][0][0]}</td>

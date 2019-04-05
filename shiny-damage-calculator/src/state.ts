@@ -16,7 +16,9 @@ export interface IAppState {
   auditionWeek: number,
   buffValue: IStatus,
   appealTarget: AppealTarget,
-  cardMultiple: number
+  cardMultiple: number,
+  pIdolName: string,
+  sIdolName: string[]
 }
 
 // Stateの初期値
@@ -33,11 +35,13 @@ export const DEFAULT_STATE: IAppState = {
   auditionWeek: 33,
   buffValue: {vo: 0, da: 0, vi: 0},
   appealTarget: 'vo',
-  cardMultiple: 20
+  cardMultiple: 20,
+  pIdolName: '',
+  sIdolName: ['', '', '', '']
 }
 
 // Actionの種類
-export type ActionType = 'P_IDOL' | 'S_IDOL' | 'MEMORIAL' | 'WEEK' | 'BUFF' | 'TARGET' | 'CARD'
+export type ActionType = 'P_IDOL' | 'S_IDOL' | 'P_NAME' | 'S_NAME' | 'MEMORIAL' | 'WEEK' | 'BUFF' | 'TARGET' | 'CARD'
 
 // Actionを表すinterface
 export interface IAction {
