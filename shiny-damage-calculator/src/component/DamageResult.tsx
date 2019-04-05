@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FormControl } from 'react-bootstrap';
 import { calcMemorialDamage, calcNormalDamage } from 'src/simulator';
 import { AppealTarget } from 'src/state';
 import { range } from 'src/utility';
@@ -12,20 +13,37 @@ const idolWord = () => isPC() ? 'アイドル' : '';
 const DamageResult: React.FC = () => {
 	const context = React.useContext(AppContext);
 
+	const onChange = (event: React.FormEvent<any>) => {
+		if (event.currentTarget.value !== undefined) {
+			context.dispatch({'type': 'CARD', 'value': event.currentTarget.value});
+		}
+	};
+
 	const memorialDamageGood = calcMemorialDamage(context.state, true);
 	const memorialDamageBad = calcMemorialDamage(context.state, false);
 	const normalDamage = range(5).map(index => {
 		return ['vo', 'da', 'vi'].map(type => {
 			const type2 = type as AppealTarget;
 			return [
-				calcNormalDamage(context.state, index, type2, 2.5, 'perfect'),
-				calcNormalDamage(context.state, index, type2, 2.5, 'good')
+				calcNormalDamage(context.state, index, type2, context.state.cardMultiple / 10.0, 'perfect'),
+				calcNormalDamage(context.state, index, type2, context.state.cardMultiple / 10.0, 'good')
 			]
 		});
 	});
 
 	return (<div className='p-3'>
-		<strong>通常アピール</strong><br />
+		<div className='d-flex'>
+			<strong className='text-nowrap mt-2'>通常アピール</strong>
+			<FormControl className='m-1' as='select' defaultValue={'' + context.state.cardMultiple} onChange={onChange}>
+			{
+				range(41).map(i => {
+					const val = i + 10;
+					const text = `${val / 10}倍`
+					return (<option key={i} value={'' + val}>{text}</option>);
+				})
+			}
+		</FormControl>
+		</div>
 		<table className='table table-responsive text-center table-sm'>
 			<thead>
 				<tr>

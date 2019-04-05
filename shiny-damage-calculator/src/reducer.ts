@@ -30,6 +30,8 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
     case 'TARGET':
       newState.appealTarget = action.value as AppealTarget;
       break;
+    case 'CARD':
+      newState.cardMultiple = parseInt(action.value, 10);
   }
   window.localStorage.setItem(LOCAL_KEY, JSON.stringify(newState));
   setState(newState);
