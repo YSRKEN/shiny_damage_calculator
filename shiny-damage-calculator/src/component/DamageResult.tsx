@@ -4,6 +4,11 @@ import { AppealTarget } from 'src/state';
 import { range } from 'src/utility';
 import { AppContext } from './App';
 
+const isPC = () => window.innerWidth >= 768;
+const perfectLabel = () => isPC() ? 'PERFECT' : 'P';
+const goodLabel = () => isPC() ? 'GOOD' : 'G';
+const idolWord = () => isPC() ? 'アイドル' : '';
+
 const DamageResult: React.FC = () => {
 	const context = React.useContext(AppContext);
 
@@ -24,24 +29,25 @@ const DamageResult: React.FC = () => {
 		<table className='table table-responsive text-center table-sm'>
 			<thead>
 				<tr>
-					<th scope='col' rowSpan={2}>アイドル</th>
+					<th scope='col' rowSpan={2}>{isPC() ? 'アイドル' : 'idol'}</th>
 					<th scope='col' colSpan={2}>Vo</th>
 					<th scope='col' colSpan={2}>Da</th>
 					<th scope='col' colSpan={2}>Vi</th>
 				</tr>
 				<tr>
-					<th scope='col'>PERFECT</th>
-					<th scope='col'>GOOD</th>
-					<th scope='col'>PERFECT</th>
-					<th scope='col'>GOOD</th>
-					<th scope='col'>PERFECT</th>
-					<th scope='col'>GOOD</th>
+					<th scope='col'>{perfectLabel()}</th>
+					<th scope='col'>{goodLabel()}</th>
+					<th scope='col'>{perfectLabel()}</th>
+					<th scope='col'>{goodLabel()}</th>
+					<th scope='col'>{perfectLabel()}</th>
+					<th scope='col'>{goodLabel()}</th>
 				</tr>
 			</thead>
 			<tbody>
 			{
+				
 				range(5).map(index => {
-					const idolName = index === 0 ? 'pアイドル' : `s${index}アイドル`;
+					const idolName = index === 0 ? `p${idolWord()}` : `s${index}${idolWord()}`;
 					return (<tr key={index}>
 						<th scope='row'>{idolName}</th>
 						<td>{normalDamage[index][0][0]}</td>
