@@ -220,3 +220,135 @@ it('test10', () => {
 // tslint:disable-next-line: no-console
 console.log(`${calcMemorialDamage(state, true)[1]} ${4181}`);
 });
+
+it('test11', () => {
+  const state: IAppState = {
+    pIdolStatus: {vo: 116, da: 103, vi: 496},
+    sIdolStatus: [
+      {vo: 150, da: 140, vi: 160},
+      {vo: 138, da: 138, vi: 180},
+      {vo: 125, da: 156, vi: 188},
+      {vo: 140, da: 140, vi: 159}
+    ],
+    // tslint:disable-next-line:object-literal-sort-keys
+    memorialOption: 0,
+    auditionWeek: 32,
+    buffValue: {vo: 0, da: 0, vi: 0},
+    appealTarget: 'vi',
+    cardMultiple: 25,
+    pIdolName: '',
+    sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
+  }
+// tslint:disable-next-line: no-console
+  console.log(`${calcNormalDamage(state, 0, 'vi', 'perfect')} ${12464}`);
+});
+
+it('test12', () => {
+  const state: IAppState = {
+    pIdolStatus: {vo: 116, da: 103, vi: 496},
+    sIdolStatus: [
+      {vo: 150, da: 140, vi: 160},
+      {vo: 138, da: 138, vi: 180},
+      {vo: 125, da: 156, vi: 188},
+      {vo: 140, da: 140, vi: 159}
+    ],
+    // tslint:disable-next-line:object-literal-sort-keys
+    memorialOption: 0,
+    auditionWeek: 32,
+    buffValue: {vo: 0, da: 0, vi: 6},
+    appealTarget: 'vi',
+    cardMultiple: 20,
+    pIdolName: '',
+    sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
+  }
+// tslint:disable-next-line: no-console
+  console.log(`${calcNormalDamage(state, 3, 'vi', 'perfect')} ${8244}`);
+});
+
+it('test13', () => {
+  const state: IAppState = {
+    pIdolStatus: {vo: 116, da: 103, vi: 496},
+    sIdolStatus: [
+      {vo: 150, da: 140, vi: 160},
+      {vo: 138, da: 138, vi: 180},
+      {vo: 125, da: 156, vi: 188},
+      {vo: 140, da: 140, vi: 159}
+    ],
+    // tslint:disable-next-line:object-literal-sort-keys
+    memorialOption: 0,
+    auditionWeek: 32,
+    buffValue: {vo: 0, da: 0, vi: 0},
+    appealTarget: 'da',
+    cardMultiple: 26,
+    pIdolName: '',
+    sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
+  }
+// tslint:disable-next-line: no-console
+  console.log(`${calcNormalDamage(state, 1, 'vi', 'perfect')} ${4781}`);
+});
+
+it('test14', () => {
+  const state: IAppState = {
+    pIdolStatus: {vo: 136, da: 123, vi: 500},
+    sIdolStatus: [
+      {vo: 150, da: 140, vi: 160},
+      {vo: 138, da: 138, vi: 180},
+      {vo: 125, da: 156, vi: 188},
+      {vo: 140, da: 140, vi: 159}
+    ],
+    // tslint:disable-next-line:object-literal-sort-keys
+    memorialOption: 0,
+    auditionWeek: 33,
+    buffValue: {vo: 0, da: 0, vi: 0},
+    appealTarget: 'vi',
+    cardMultiple: 26,
+    pIdolName: '',
+    sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
+  }
+// tslint:disable-next-line: no-console
+  console.log(`${calcNormalDamage(state, 1, 'vi', 'perfect')} ${9764}`);
+});
+
+it('test15', () => {
+  const state: IAppState = {
+    pIdolStatus: {vo: 136, da: 123, vi: 500},
+    sIdolStatus: [
+      {vo: 150, da: 140, vi: 160},
+      {vo: 138, da: 138, vi: 180},
+      {vo: 125, da: 156, vi: 188},
+      {vo: 140, da: 140, vi: 159}
+    ],
+    // tslint:disable-next-line:object-literal-sort-keys
+    memorialOption: 0,
+    auditionWeek: 33,
+    buffValue: {vo: 0, da: 0, vi: 0},
+    appealTarget: 'vi',
+    cardMultiple: 25,
+    pIdolName: '',
+    sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
+  }
+// tslint:disable-next-line: no-console
+  console.log(`${calcNormalDamage(state, 0, 'vi', 'perfect')} ${11924}`);
+});
+
+it('test15', () => {
+  const state: IAppState = {
+    pIdolStatus: {vo: 136, da: 123, vi: 500},
+    sIdolStatus: [
+      {vo: 150, da: 140, vi: 160},
+      {vo: 138, da: 138, vi: 180},
+      {vo: 125, da: 156, vi: 188},
+      {vo: 140, da: 140, vi: 159}
+    ],
+    // tslint:disable-next-line:object-literal-sort-keys
+    memorialOption: 0,
+    auditionWeek: 33,
+    buffValue: {vo: 0, da: 0, vi: 20},
+    appealTarget: 'vi',
+    cardMultiple: 26,
+    pIdolName: '',
+    sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
+  }
+// tslint:disable-next-line: no-console
+  console.log(`${calcNormalDamage(state, 4, 'vi', 'good')} ${8574}`);
+});
