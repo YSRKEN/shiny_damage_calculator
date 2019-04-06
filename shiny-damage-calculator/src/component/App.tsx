@@ -27,8 +27,13 @@ const App: React.FC = () => {
           <h1 className='text-center d-none d-sm-block my-3'>シャニマス火力計算機</h1>
           <h2 className='text-center d-xs-block d-sm-none my-3'>シャニマス火力計算機</h2>
           <div className='text-center my-3'>
-            Ver.0.5.0<a className='ml-3' href='https://github.com/YSRKEN/shiny_damage_calculator'>GitHubへのリンク</a>
+            Ver.0.6.0
+            <a className='ml-3' href='https://github.com/YSRKEN/shiny_damage_calculator'>GitHubへのリンク</a>
+            <a className='ml-3' href='https://twitter.com/YSRKEN'>作者Twitter</a>
           </div>
+          <p className='text-center my-3'>
+            注意：ダメージ計算式には未解明の箇所もあるため<strong>計算誤差が存在します</strong>
+          </p>
           <Form className='border'>
             <IdolParameterForm/>
             <OtherOptionForm/>
