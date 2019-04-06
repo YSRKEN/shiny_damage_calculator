@@ -20,7 +20,7 @@ it('test1', () => {
     sIdolName: ['', '', '', '']
   }
 // tslint:disable-next-line: no-console
-  console.log(`${calcNormalDamage(state, 4, 'vi', 2.6, 'perfect')} ${6068}`);
+  console.log(`${calcNormalDamage(state, 4, 'vi', 'perfect')} ${6068}`);
 });
 
 it('test2', () => {
@@ -42,7 +42,7 @@ it('test2', () => {
     sIdolName: ['', '', '', '']
   }
 // tslint:disable-next-line: no-console
-  console.log(`${calcNormalDamage(state, 2, 'vi', 2.5, 'perfect')} ${6090}`);
+  console.log(`${calcNormalDamage(state, 2, 'vi', 'perfect')} ${6090}`);
 });
 
 it('test3', () => {
@@ -64,7 +64,7 @@ it('test3', () => {
     sIdolName: ['', '', '', '']
   }
 // tslint:disable-next-line: no-console
-  console.log(`${calcNormalDamage(state, 3, 'vi', 2, 'good')} ${3632}`);
+  console.log(`${calcNormalDamage(state, 3, 'vi', 'good')} ${3632}`);
 });
 
 it('test4', () => {
@@ -108,7 +108,7 @@ it('test5', () => {
     sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
   }
 // tslint:disable-next-line: no-console
-console.log(`${calcNormalDamage(state, 4, 'vi', 2.6, 'perfect')} ${8382}`);
+console.log(`${calcNormalDamage(state, 4, 'vi', 'perfect')} ${8382}`);
 });
 
 it('test6', () => {
@@ -130,7 +130,7 @@ it('test6', () => {
     sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
   }
 // tslint:disable-next-line: no-console
-console.log(`${calcNormalDamage(state, 1, 'vi', 2.6, 'good')} ${6956}`);
+console.log(`${calcNormalDamage(state, 1, 'vi', 'good')} ${6956}`);
 });
 
 it('test7', () => {
@@ -152,7 +152,7 @@ it('test7', () => {
     sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
   }
 // tslint:disable-next-line: no-console
-console.log(`${calcNormalDamage(state, 2, 'vi', 2.5, 'perfect')} ${8410}`);
+console.log(`${calcNormalDamage(state, 2, 'vi', 'perfect')} ${8410}`);
 });
 
 it('test8', () => {
@@ -174,7 +174,7 @@ it('test8', () => {
     sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
   }
 // tslint:disable-next-line: no-console
-console.log(`${calcNormalDamage(state, 0, 'vi', 2.5, 'good')} ${9400}`);
+console.log(`${calcNormalDamage(state, 0, 'vi', 'good')} ${9400}`);
 });
 
 it('test9', () => {
@@ -196,7 +196,7 @@ it('test9', () => {
     sIdolName: ['まの', 'まみみ', 'きりこ', 'ちゆき']
   }
 // tslint:disable-next-line: no-console
-console.log(`${calcNormalDamage(state, 0, 'vi', 2.5, 'good')} ${4512}`);
+console.log(`${calcNormalDamage(state, 0, 'vi', 'good')} ${4512}`);
 });
 
 it('test10', () => {

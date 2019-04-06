@@ -23,8 +23,8 @@ const DamageResult: React.FC = () => {
 		return ['vo', 'da', 'vi'].map(type => {
 			const type2 = type as AppealTarget;
 			return [
-				calcNormalDamage(context.state, index, type2, context.state.cardMultiple / 10.0, 'perfect'),
-				calcNormalDamage(context.state, index, type2, context.state.cardMultiple / 10.0, 'good')
+				calcNormalDamage(context.state, index, type2, 'perfect'),
+				calcNormalDamage(context.state, index, type2, 'good')
 			]
 		});
 	});
