@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { FormControl } from 'react-bootstrap';
-import { calcMemorialDamage, calcNormalDamage } from 'src/simulator';
-import { AppealTarget } from 'src/state';
-import { idolWord, isPC, range } from 'src/utility';
+import { calcMemorialDamage, calcNormalDamage } from '../simulator';
+import { AppealTarget } from '../state';
+import { idolWord, isPC, range } from '../utility';
 import { AppContext } from './App';
 
 const perfectLabel = () => isPC() ? 'PERFECT' : 'P';
@@ -23,8 +23,8 @@ const DamageResult: React.FC = () => {
 		return ['vo', 'da', 'vi'].map(type => {
 			const type2 = type as AppealTarget;
 			return [
-				calcNormalDamage(context.state, index, type2, context.state.cardMultiple / 10.0, 'perfect'),
-				calcNormalDamage(context.state, index, type2, context.state.cardMultiple / 10.0, 'good')
+				calcNormalDamage(context.state, index, type2, 'perfect'),
+				calcNormalDamage(context.state, index, type2, 'good')
 			]
 		});
 	});

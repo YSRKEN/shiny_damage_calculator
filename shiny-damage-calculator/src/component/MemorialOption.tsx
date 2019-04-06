@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
-import { range } from 'src/utility';
+import { range } from '../utility';
 import { AppContext } from './App';
 
 export const MemorialOption: React.FC = () => {
