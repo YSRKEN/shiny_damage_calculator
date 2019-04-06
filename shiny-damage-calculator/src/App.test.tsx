@@ -59,7 +59,7 @@ it('test3', () => {
     auditionWeek: 17,
     buffValue: {vo: 0, da: 0, vi: 0},
     appealTarget: 'vi',
-    cardMultiple: 2,
+    cardMultiple: 20,
     pIdolName: '',
     sIdolName: ['', '', '', '']
   }
