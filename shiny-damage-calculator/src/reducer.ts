@@ -44,6 +44,16 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
     case 'STATUS_NAME':
       newState.idolStatusName = action.value;
       break;
+    case 'ADD_PRESET':
+      if (newState.presetList === undefined) {
+        newState.presetList = [];
+      }
+      newState.presetList.push({
+        idolStatusName: state.idolStatusName,
+        pIdolStatus: {...state.pIdolStatus},
+        sIdolStatus: JSON.parse(JSON.stringify(state.sIdolStatus))
+      });
+      break;
   }
   window.localStorage.setItem(LOCAL_KEY, JSON.stringify(newState));
   setState(newState);

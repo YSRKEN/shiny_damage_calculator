@@ -8,18 +8,26 @@ export interface IStatus {
 // アピール対象
 export type AppealTarget = 'vo' | 'da' | 'vi' | 'other';
 
+// ステータスのプリセット
+export interface IStatusPreset {
+  idolStatusName: string;
+  pIdolStatus: IStatus;
+  sIdolStatus: IStatus[];
+}
+
 // アプリケーション全体のState
 export interface IAppState {
   idolStatusName: string;
-  pIdolStatus: IStatus,
-  sIdolStatus: IStatus[]
-  memorialOption: number,
-  auditionWeek: number,
-  buffValue: IStatus,
-  appealTarget: AppealTarget,
-  cardMultiple: number,
-  pIdolName: string,
-  sIdolName: string[]
+  pIdolStatus: IStatus;
+  sIdolStatus: IStatus[];
+  memorialOption: number;
+  auditionWeek: number;
+  buffValue: IStatus;
+  appealTarget: AppealTarget;
+  cardMultiple: number;
+  pIdolName: string;
+  sIdolName: string[];
+  presetList?: IStatusPreset[];
 }
 
 // Stateの初期値
@@ -39,11 +47,12 @@ export const DEFAULT_STATE: IAppState = {
   appealTarget: 'vo',
   cardMultiple: 20,
   pIdolName: '',
-  sIdolName: ['', '', '', '']
+  sIdolName: ['', '', '', ''],
+  presetList: []
 }
 
 // Actionの種類
-export type ActionType = 'P_IDOL' | 'S_IDOL' | 'P_NAME' | 'S_NAME' | 'MEMORIAL' | 'WEEK' | 'BUFF' | 'TARGET' | 'CARD' | 'STATUS_NAME';
+export type ActionType = 'P_IDOL' | 'S_IDOL' | 'P_NAME' | 'S_NAME' | 'MEMORIAL' | 'WEEK' | 'BUFF' | 'TARGET' | 'CARD' | 'STATUS_NAME' | 'ADD_PRESET';
 
 // Actionを表すinterface
 export interface IAction {
