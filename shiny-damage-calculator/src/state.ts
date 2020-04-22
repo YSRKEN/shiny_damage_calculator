@@ -10,6 +10,7 @@ export type AppealTarget = 'vo' | 'da' | 'vi' | 'other';
 
 // アプリケーション全体のState
 export interface IAppState {
+  idolStatusName: string;
   pIdolStatus: IStatus,
   sIdolStatus: IStatus[]
   memorialOption: number,
@@ -23,6 +24,7 @@ export interface IAppState {
 
 // Stateの初期値
 export const DEFAULT_STATE: IAppState = {
+  idolStatusName: '',
   pIdolStatus: {vo: 500, da: 150, vi: 150},
   sIdolStatus: [
     {vo: 150, da: 150, vi: 150},
@@ -41,7 +43,7 @@ export const DEFAULT_STATE: IAppState = {
 }
 
 // Actionの種類
-export type ActionType = 'P_IDOL' | 'S_IDOL' | 'P_NAME' | 'S_NAME' | 'MEMORIAL' | 'WEEK' | 'BUFF' | 'TARGET' | 'CARD'
+export type ActionType = 'P_IDOL' | 'S_IDOL' | 'P_NAME' | 'S_NAME' | 'MEMORIAL' | 'WEEK' | 'BUFF' | 'TARGET' | 'CARD' | 'STATUS_NAME';
 
 // Actionを表すinterface
 export interface IAction {
