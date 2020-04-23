@@ -52,7 +52,7 @@ export const DEFAULT_STATE: IAppState = {
 }
 
 // Actionの種類
-export type ActionType = 'P_IDOL' | 'S_IDOL' | 'P_NAME' | 'S_NAME' | 'MEMORIAL' | 'WEEK' | 'BUFF' | 'TARGET' | 'CARD' | 'STATUS_NAME' | 'ADD_PRESET';
+export type ActionType = 'P_IDOL' | 'S_IDOL' | 'P_NAME' | 'S_NAME' | 'MEMORIAL' | 'WEEK' | 'BUFF' | 'TARGET' | 'CARD' | 'STATUS_NAME' | 'ADD_PRESET' | 'LOAD_PRESET';
 
 // Actionを表すinterface
 export interface IAction {

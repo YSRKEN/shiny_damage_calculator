@@ -54,6 +54,19 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
         sIdolStatus: JSON.parse(JSON.stringify(state.sIdolStatus))
       });
       break;
+    case 'LOAD_PRESET':{
+      if (state.presetList !== undefined) {
+        const temp = state.presetList.filter(p => p.idolStatusName === action.value);
+        if (temp.length > 0) {
+          newState.idolStatusName = temp[0].idolStatusName;
+          // tslint:disable-next-line: no-console
+          console.log(temp);
+          newState.pIdolStatus =JSON.parse(JSON.stringify(temp[0].pIdolStatus));
+          newState.sIdolStatus = JSON.parse(JSON.stringify(temp[0].sIdolStatus));
+        }
+      } 
+      break;
+    }
   }
   window.localStorage.setItem(LOCAL_KEY, JSON.stringify(newState));
   setState(newState);
