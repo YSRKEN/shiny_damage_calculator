@@ -13,6 +13,8 @@ export interface IStatusPreset {
   idolStatusName: string;
   pIdolStatus: IStatus;
   sIdolStatus: IStatus[];
+  pIdolName: string;
+  sIdolName: string[];
 }
 
 // アプリケーション全体のState

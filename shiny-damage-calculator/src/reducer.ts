@@ -51,7 +51,10 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
       newState.presetList.push({
         idolStatusName: state.idolStatusName,
         pIdolStatus: {...state.pIdolStatus},
-        sIdolStatus: JSON.parse(JSON.stringify(state.sIdolStatus))
+        sIdolStatus: JSON.parse(JSON.stringify(state.sIdolStatus)),
+        // tslint:disable-next-line: object-literal-sort-keys
+        pIdolName: state.pIdolName,
+        sIdolName: JSON.parse(JSON.stringify(state.sIdolName))
       });
       break;
     case 'LOAD_PRESET':{
@@ -63,6 +66,8 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
           console.log(temp);
           newState.pIdolStatus =JSON.parse(JSON.stringify(temp[0].pIdolStatus));
           newState.sIdolStatus = JSON.parse(JSON.stringify(temp[0].sIdolStatus));
+          newState.pIdolName = temp[0].pIdolName;
+          newState.sIdolName = JSON.parse(JSON.stringify(temp[0].sIdolName));
         }
       } 
       break;
