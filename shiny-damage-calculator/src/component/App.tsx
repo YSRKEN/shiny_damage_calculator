@@ -13,6 +13,9 @@ interface IContext {
 
 const defaultState: IAppState = window.localStorage.getItem(LOCAL_KEY) === null
   ? DEFAULT_STATE : JSON.parse('' + window.localStorage.getItem(LOCAL_KEY));
+if (defaultState.presetList === undefined) {
+  defaultState.presetList = [];
+}
 
 // tslint:disable-next-line: no-empty
 export const AppContext = React.createContext<IContext>({'state': defaultState, dispatch: () => {}});
