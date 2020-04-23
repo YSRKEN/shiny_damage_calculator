@@ -46,7 +46,9 @@ export const IdolParameterForm: React.FC = () => {
   };
 
   const deletePreset = () => {
-    // a
+    if (window.confirm(`「${presetName}」を削除しますか？`)) {
+      context.dispatch({type: 'DELETE_PRESET', value: presetName});
+    }
   };
 
   return (

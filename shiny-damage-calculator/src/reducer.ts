@@ -96,6 +96,18 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
       }
       break;
     }
+    case 'DELETE_PRESET': {
+      if (state.presetList !== undefined) {
+        newState.presetList = [];
+        // tslint:disable-next-line: prefer-for-of
+        for (let i = 0; i < state.presetList.length; i += 1) {
+          if (state.presetList[i].idolStatusName !== action.value) {
+            newState.presetList.push(JSON.parse(JSON.stringify(state.presetList[i])));
+          }
+        }
+      }
+      break;
+    }
   }
   window.localStorage.setItem(LOCAL_KEY, JSON.stringify(newState));
   setState(newState);
