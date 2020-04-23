@@ -13,6 +13,9 @@ interface IContext {
 
 const defaultState: IAppState = window.localStorage.getItem(LOCAL_KEY) === null
   ? DEFAULT_STATE : JSON.parse('' + window.localStorage.getItem(LOCAL_KEY));
+if (defaultState.presetList === undefined) {
+  defaultState.presetList = [];
+}
 
 // tslint:disable-next-line: no-empty
 export const AppContext = React.createContext<IContext>({'state': defaultState, dispatch: () => {}});
@@ -27,7 +30,7 @@ const App: React.FC = () => {
           <h1 className='text-center d-none d-sm-block my-3'>シャニマス火力計算機</h1>
           <h2 className='text-center d-xs-block d-sm-none my-3'>シャニマス火力計算機</h2>
           <div className='text-center my-3'>
-            Ver.0.6.0
+            Ver.0.7.0
             <a className='ml-3' href='https://github.com/YSRKEN/shiny_damage_calculator'>GitHubへのリンク</a>
             <a className='ml-3' href='https://twitter.com/YSRKEN'>作者Twitter</a>
           </div>

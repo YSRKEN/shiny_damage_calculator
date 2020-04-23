@@ -3,6 +3,7 @@ import { IAppState } from "./state";
 
 it('test1', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 80, da: 80, vi: 303},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -25,6 +26,7 @@ it('test1', () => {
 
 it('test2', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 80, da: 80, vi: 303},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -47,6 +49,7 @@ it('test2', () => {
 
 it('test3', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 80, da: 80, vi: 303},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -69,6 +72,7 @@ it('test3', () => {
 
 it('test4', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 80, da: 80, vi: 303},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -91,6 +95,7 @@ it('test4', () => {
 
 it('test5', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 102, da: 96, vi: 430},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -113,6 +118,7 @@ console.log(`${calcNormalDamage(state, 4, 'vi', 'perfect')} ${8382}`);
 
 it('test6', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 102, da: 96, vi: 430},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -135,6 +141,7 @@ console.log(`${calcNormalDamage(state, 1, 'vi', 'good')} ${6956}`);
 
 it('test7', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 102, da: 96, vi: 430},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -157,6 +164,7 @@ console.log(`${calcNormalDamage(state, 2, 'vi', 'perfect')} ${8410}`);
 
 it('test8', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 102, da: 96, vi: 430},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -179,6 +187,7 @@ console.log(`${calcNormalDamage(state, 0, 'vi', 'good')} ${9400}`);
 
 it('test9', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 102, da: 96, vi: 430},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -201,6 +210,7 @@ console.log(`${calcNormalDamage(state, 0, 'vi', 'good')} ${4512}`);
 
 it('test10', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 102, da: 96, vi: 430},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -223,6 +233,7 @@ console.log(`${calcMemorialDamage(state, true)[1]} ${4181}`);
 
 it('test11', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 116, da: 103, vi: 496},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -245,6 +256,7 @@ it('test11', () => {
 
 it('test12', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 116, da: 103, vi: 496},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -267,6 +279,7 @@ it('test12', () => {
 
 it('test13', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 116, da: 103, vi: 496},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -289,6 +302,7 @@ it('test13', () => {
 
 it('test14', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 136, da: 123, vi: 500},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -311,6 +325,7 @@ it('test14', () => {
 
 it('test15', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 136, da: 123, vi: 500},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
@@ -333,6 +348,7 @@ it('test15', () => {
 
 it('test15', () => {
   const state: IAppState = {
+    idolStatusName: '',
     pIdolStatus: {vo: 136, da: 123, vi: 500},
     sIdolStatus: [
       {vo: 150, da: 140, vi: 160},
