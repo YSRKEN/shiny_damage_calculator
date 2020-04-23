@@ -42,7 +42,7 @@ export const IdolParameterForm: React.FC = () => {
   };
 
   const updatePreset = () => {
-    // a
+    context.dispatch({type: 'UPDATE_PRESET', value: presetName});
   };
 
   const deletePreset = () => {
@@ -79,7 +79,7 @@ export const IdolParameterForm: React.FC = () => {
           disabled={presetNameList().length === 0}
           onClick={loadPreset}>読込み</Button>
         <Button className="d-block mr-3 text-nowrap" variant="warning"
-          disabled={presetNameList().length === 0}
+          disabled={presetNameList().length === 0 || (presetNameList().includes(context.state.idolStatusName) && presetName !== context.state.idolStatusName)}
           onClick={updatePreset}>上書き</Button>
         <Button className="d-block mr-3 text-nowrap" variant="danger"
           disabled={presetNameList().length === 0}

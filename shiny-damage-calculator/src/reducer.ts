@@ -72,6 +72,30 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
       } 
       break;
     }
+    case 'UPDATE_PRESET':{
+      if (state.presetList !== undefined) {
+        const temp = state.presetList.filter(p => p.idolStatusName === action.value);
+        if (temp.length > 0) {
+          newState.presetList = [];
+          // tslint:disable-next-line: prefer-for-of
+          for (let i = 0; i < state.presetList.length; i += 1) {
+            if (state.presetList[i].idolStatusName !== action.value) {
+              newState.presetList.push(JSON.parse(JSON.stringify(state.presetList[i])));
+            } else {
+              newState.presetList.push({
+                idolStatusName: state.idolStatusName,
+                pIdolStatus: {...state.pIdolStatus},
+                sIdolStatus: JSON.parse(JSON.stringify(state.sIdolStatus)),
+                // tslint:disable-next-line: object-literal-sort-keys
+                pIdolName: state.pIdolName,
+                sIdolName: JSON.parse(JSON.stringify(state.sIdolName))
+              });
+            }
+          }
+        }
+      }
+      break;
+    }
   }
   window.localStorage.setItem(LOCAL_KEY, JSON.stringify(newState));
   setState(newState);
