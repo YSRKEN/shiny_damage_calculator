@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
-import { range } from '../utility';
-import { AppContext } from './App';
+import { range } from 'utility';
+import { AppContext } from 'component/App';
 
 export const MemorialOption: React.FC = () => {
   const context = React.useContext(AppContext);
 
   const onChange = (event: React.FormEvent<any>) => {
     if (event.currentTarget.value !== undefined) {
-      context.dispatch({'type': 'MEMORIAL', 'value': event.currentTarget.value});
+      context.dispatch({ 'type': 'MEMORIAL', 'value': event.currentTarget.value });
     }
   };
   return (
@@ -17,7 +17,7 @@ export const MemorialOption: React.FC = () => {
       <FormControl className='mx-1' as='select' defaultValue={'' + context.state.memorialOption} onChange={onChange}>
         {
           range(5).map(i => (
-            <option key={i} value={'' + i}>Lv.{i+1}</option>
+            <option key={i} value={'' + i}>Lv.{i + 1}</option>
           ))
         }
       </FormControl>
