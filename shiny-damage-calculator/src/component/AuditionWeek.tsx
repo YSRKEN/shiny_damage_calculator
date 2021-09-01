@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
-import { range } from '../utility';
-import { AppContext } from './App';
+import { range } from 'utility';
+import { AppContext } from 'component/App';
 
 export const AuditionWeek: React.FC = () => {
   const context = React.useContext(AppContext);
 
   const onChange = (event: React.FormEvent<any>) => {
     if (event.currentTarget.value !== undefined) {
-      context.dispatch({'type': 'WEEK', 'value': event.currentTarget.value});
+      context.dispatch({ 'type': 'WEEK', 'value': event.currentTarget.value });
     }
   };
   return (

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { range } from '../utility';
-import { AppContext } from './App';
-import { IdolParameter } from './IdolParameter';
+import { range } from 'utility';
+import { AppContext } from 'component/App';
+import { IdolParameter } from 'component/IdolParameter';
 
 export const IdolParameterForm: React.FC = () => {
   const context = React.useContext(AppContext);
@@ -38,16 +38,16 @@ export const IdolParameterForm: React.FC = () => {
   }
 
   const loadPreset = () => {
-    context.dispatch({type: 'LOAD_PRESET', value: presetName});
+    context.dispatch({ type: 'LOAD_PRESET', value: presetName });
   };
 
   const updatePreset = () => {
-    context.dispatch({type: 'UPDATE_PRESET', value: presetName});
+    context.dispatch({ type: 'UPDATE_PRESET', value: presetName });
   };
 
   const deletePreset = () => {
     if (window.confirm(`「${presetName}」を削除しますか？`)) {
-      context.dispatch({type: 'DELETE_PRESET', value: presetName});
+      context.dispatch({ type: 'DELETE_PRESET', value: presetName });
     }
   };
 
@@ -57,7 +57,7 @@ export const IdolParameterForm: React.FC = () => {
       <Form.Group className='m-3'>
         <Form.Control placeholder='プリセットの名称' value={context.state.idolStatusName}
           // tslint:disable-next-line: jsx-no-lambda
-          onChange={(e: any) => context.dispatch({'type': 'STATUS_NAME', 'value': e.currentTarget.value })} />
+          onChange={(e: any) => context.dispatch({ 'type': 'STATUS_NAME', 'value': e.currentTarget.value })} />
       </Form.Group>
       <IdolParameter />
       {
@@ -67,9 +67,9 @@ export const IdolParameterForm: React.FC = () => {
       }
       <Form.Group className='m-3 d-flex'>
         <Button className="d-block mr-3 text-nowrap"
-        // tslint:disable-next-line: jsx-no-lambda
-        onClick={() => context.dispatch({'type': 'ADD_PRESET', 'value': '' })}
-        disabled={disableAddFlg()}>追加</Button>
+          // tslint:disable-next-line: jsx-no-lambda
+          onClick={() => context.dispatch({ 'type': 'ADD_PRESET', 'value': '' })}
+          disabled={disableAddFlg()}>追加</Button>
         <Form.Control as="select" className="mr-3" value={presetName}
           // tslint:disable-next-line: jsx-no-lambda
           onChange={(e: any) => setPresetName(e.currentTarget.value)}>

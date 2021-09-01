@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { FormControl } from 'react-bootstrap';
-import { calcMemorialDamage, calcNormalDamage } from '../simulator';
-import { AppealTarget } from '../state';
-import { idolWord, isPC, range } from '../utility';
-import { AppContext } from './App';
+import { calcMemorialDamage, calcNormalDamage } from 'simulator';
+import { AppealTarget } from 'state';
+import { idolWord, isPC, range } from 'utility';
+import { AppContext } from 'component/App';
 
 const perfectLabel = () => isPC() ? 'PERFECT' : 'P';
 const goodLabel = () => isPC() ? 'GOOD' : 'G';
@@ -13,7 +13,7 @@ const DamageResult: React.FC = () => {
 
 	const onChange = (event: React.FormEvent<any>) => {
 		if (event.currentTarget.value !== undefined) {
-			context.dispatch({'type': 'CARD', 'value': event.currentTarget.value});
+			context.dispatch({ 'type': 'CARD', 'value': event.currentTarget.value });
 		}
 	};
 
@@ -33,14 +33,14 @@ const DamageResult: React.FC = () => {
 		<div className='d-flex'>
 			<strong className='text-nowrap mt-2'>通常アピール</strong>
 			<FormControl className='m-1' as='select' defaultValue={'' + context.state.cardMultiple} onChange={onChange}>
-			{
-				range(41).map(i => {
-					const val = i + 10;
-					const text = `${val / 10}倍`
-					return (<option key={i} value={'' + val}>{text}</option>);
-				})
-			}
-		</FormControl>
+				{
+					range(41).map(i => {
+						const val = i + 10;
+						const text = `${val / 10}倍`
+						return (<option key={i} value={'' + val}>{text}</option>);
+					})
+				}
+			</FormControl>
 		</div>
 		<table className='table table-responsive text-center table-sm'>
 			<thead>
@@ -60,26 +60,26 @@ const DamageResult: React.FC = () => {
 				</tr>
 			</thead>
 			<tbody>
-			{
-				
-				range(5).map(index => {
-					let idolName = '';
-					if (index === 0) {
-						idolName = context.state.pIdolName !== '' ? context.state.pIdolName : `p${idolWord()}`;
-					} else {
-						idolName = context.state.sIdolName[index - 1] !== '' ? context.state.sIdolName[index - 1] : `s${index}${idolWord()}`;
-					}
-					return (<tr key={index}>
-						<th scope='row' className='text-nowrap'>{idolName}</th>
-						<td>{normalDamage[index][0][0]}</td>
-						<td>{normalDamage[index][0][1]}</td>
-						<td>{normalDamage[index][1][0]}</td>
-						<td>{normalDamage[index][1][1]}</td>
-						<td>{normalDamage[index][2][0]}</td>
-						<td>{normalDamage[index][2][1]}</td>
-					</tr>)
-				})
-			}
+				{
+
+					range(5).map(index => {
+						let idolName = '';
+						if (index === 0) {
+							idolName = context.state.pIdolName !== '' ? context.state.pIdolName : `p${idolWord()}`;
+						} else {
+							idolName = context.state.sIdolName[index - 1] !== '' ? context.state.sIdolName[index - 1] : `s${index}${idolWord()}`;
+						}
+						return (<tr key={index}>
+							<th scope='row' className='text-nowrap'>{idolName}</th>
+							<td>{normalDamage[index][0][0]}</td>
+							<td>{normalDamage[index][0][1]}</td>
+							<td>{normalDamage[index][1][0]}</td>
+							<td>{normalDamage[index][1][1]}</td>
+							<td>{normalDamage[index][2][0]}</td>
+							<td>{normalDamage[index][2][1]}</td>
+						</tr>)
+					})
+				}
 			</tbody>
 		</table>
 		<strong>思い出アピール</strong><br />

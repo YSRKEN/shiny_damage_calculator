@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { FormControl, FormGroup, FormLabel } from 'react-bootstrap';
-import { AppContext } from './App';
+import { AppContext } from 'component/App';
 
 export const AppealTarget: React.FC = () => {
   const context = React.useContext(AppContext);
 
   const onChange = (event: React.FormEvent<any>) => {
     if (event.currentTarget.value !== undefined) {
-      context.dispatch({'type': 'TARGET', 'value': event.currentTarget.value});
+      context.dispatch({ 'type': 'TARGET', 'value': event.currentTarget.value });
     }
   };
   return (

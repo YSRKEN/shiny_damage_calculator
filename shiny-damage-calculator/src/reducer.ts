@@ -1,20 +1,21 @@
+import { setStatus } from 'utility';
 import { AppealTarget, IAction, IAppState } from './state';
 
 export const LOCAL_KEY = 'shiny-damage-calculator_state';
 
 export const reduce = (state: IAppState, setState: (s: IAppState) => void, action: IAction) => {
   const newState: IAppState = JSON.parse(JSON.stringify(state));
-  switch(action.type) {
+  switch (action.type) {
     case 'P_IDOL':
       const pStatusType = action.value.split(',')[0];
       const pStatusValue = parseInt(action.value.split(',')[1], 10);
-      newState.pIdolStatus[pStatusType] = pStatusValue;
+      setStatus(newState.pIdolStatus, pStatusType as AppealTarget, pStatusValue);
       break;
     case 'S_IDOL':
       const sStatusIndex = parseInt(action.value.split(',')[0], 10);
       const sStatusType = action.value.split(',')[1];
       const sStatusValue = parseInt(action.value.split(',')[2], 10);
-      newState.sIdolStatus[sStatusIndex][sStatusType] = sStatusValue;
+      setStatus(newState.sIdolStatus[sStatusIndex], sStatusType as AppealTarget, sStatusValue);
       break;
     case 'P_NAME':
       newState.pIdolName = action.value;
@@ -33,7 +34,7 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
     case 'BUFF':
       const buffType = action.value.split(',')[0];
       const buffValue = parseInt(action.value.split(',')[1], 10);
-      newState.buffValue[buffType] = buffValue;
+      setStatus(newState.buffValue, buffType as AppealTarget, buffValue);
       break;
     case 'TARGET':
       newState.appealTarget = action.value as AppealTarget;
@@ -50,29 +51,29 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
       }
       newState.presetList.push({
         idolStatusName: state.idolStatusName,
-        pIdolStatus: {...state.pIdolStatus},
+        pIdolStatus: { ...state.pIdolStatus },
         sIdolStatus: JSON.parse(JSON.stringify(state.sIdolStatus)),
         // tslint:disable-next-line: object-literal-sort-keys
         pIdolName: state.pIdolName,
         sIdolName: JSON.parse(JSON.stringify(state.sIdolName))
       });
       break;
-    case 'LOAD_PRESET':{
+    case 'LOAD_PRESET': {
       if (state.presetList !== undefined) {
         const temp = state.presetList.filter(p => p.idolStatusName === action.value);
         if (temp.length > 0) {
           newState.idolStatusName = temp[0].idolStatusName;
           // tslint:disable-next-line: no-console
           console.log(temp);
-          newState.pIdolStatus =JSON.parse(JSON.stringify(temp[0].pIdolStatus));
+          newState.pIdolStatus = JSON.parse(JSON.stringify(temp[0].pIdolStatus));
           newState.sIdolStatus = JSON.parse(JSON.stringify(temp[0].sIdolStatus));
           newState.pIdolName = temp[0].pIdolName;
           newState.sIdolName = JSON.parse(JSON.stringify(temp[0].sIdolName));
         }
-      } 
+      }
       break;
     }
-    case 'UPDATE_PRESET':{
+    case 'UPDATE_PRESET': {
       if (state.presetList !== undefined) {
         const temp = state.presetList.filter(p => p.idolStatusName === action.value);
         if (temp.length > 0) {
@@ -84,7 +85,7 @@ export const reduce = (state: IAppState, setState: (s: IAppState) => void, actio
             } else {
               newState.presetList.push({
                 idolStatusName: state.idolStatusName,
-                pIdolStatus: {...state.pIdolStatus},
+                pIdolStatus: { ...state.pIdolStatus },
                 sIdolStatus: JSON.parse(JSON.stringify(state.sIdolStatus)),
                 // tslint:disable-next-line: object-literal-sort-keys
                 pIdolName: state.pIdolName,
