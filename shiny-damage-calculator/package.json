@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.3.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.4",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^29.7.0",
+    "jest": "^30.3.0",
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.4.4",
     "vite": "^8.0.3"
